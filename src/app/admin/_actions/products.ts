@@ -3,6 +3,7 @@ import db from "@/db/db"
 import {z} from "zod"
 import fs from "fs/promises"
 import { notFound, redirect } from "next/navigation"
+import { revalidatePath } from "next/cache"
 
 
 
@@ -45,6 +46,8 @@ export async function addProduct(prevState:unknown,formdata:FormData){
         imagePath
     }
    })
+   revalidatePath('/')
+   revalidatePath('/products')
    redirect("/admin/products")
 }
 
@@ -94,6 +97,8 @@ export async function updateProduct(id:string,prevState:unknown,formdata:FormDat
          imagePath
      }
     })
+    revalidatePath('/')
+    revalidatePath('/products')
     redirect("/admin/products")
  }
 
@@ -106,6 +111,9 @@ export async function toggleProductAvailability(id:string,isAvailableForPurchase
             isAvailableForPurchase
         }
     })
+    
+    revalidatePath('/')
+    revalidatePath('/products')
 }
 
 export async function deleteProduct(id:string){
@@ -117,4 +125,7 @@ export async function deleteProduct(id:string){
     if(product==null) return notFound();
     await fs.unlink(product.filePath)
     await fs.unlink(`public${product.imagePath}`)
+
+    revalidatePath('/')
+    revalidatePath('/products')
 }
