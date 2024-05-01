@@ -59,6 +59,8 @@ function Form({priceInCents,productId}:{priceInCents:number,productId:string}){
         }
         setIsLoading(true);
 
+
+        //check for existing order
       const orderExists= await userOrderExists(email,productId)
 
       if(orderExists){
