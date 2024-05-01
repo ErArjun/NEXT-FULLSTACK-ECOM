@@ -26,7 +26,7 @@ resend: to send emails
 
 stripe : for payment
 
-zod: for validation.
+zod: for validation
 
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
