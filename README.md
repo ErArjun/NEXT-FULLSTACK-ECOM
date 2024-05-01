@@ -15,12 +15,19 @@ bun dev
 ```
 
 ## The Stack
-next.js app directory.
-prisma: to work with database.
-shadcn/ui and tailwindCSS: styling.
-resend: to send emails.
-stripe : for payment.
+
+next.js app directory
+
+prisma: to work with database
+
+shadcn/ui and tailwindCSS: styling
+
+resend: to send emails
+
+stripe : for payment
+
 zod: for validation.
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
