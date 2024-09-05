@@ -1,5 +1,5 @@
 export async function isValidPassword(password:string,hashedPassword:string){
-      return await hashPassword(password)===hashedPassword
+       return await hashPassword(password)===hashedPassword
 }
 
 async function hashPassword(password:string){
